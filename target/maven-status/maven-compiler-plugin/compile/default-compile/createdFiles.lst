@@ -1,0 +1,5 @@
+com\georlegacy\general\notificationsbotbukkit\BukkitMain.class
+com\georlegacy\general\notificationsbotbukkit\commands\EnableBot.class
+com\georlegacy\general\notificationsbotbukkit\GetConfigValues.class
+com\georlegacy\general\notificationsbotbukkit\commands\DisableBot.class
+com\georlegacy\general\notificationsbotbukkit\App.class

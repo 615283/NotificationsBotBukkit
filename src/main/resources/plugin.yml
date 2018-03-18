@@ -1,0 +1,24 @@
+name: NotificationsBotBukkit
+author: 615283
+version: 1.0
+description: Allows usage of discord bot NotificationsBot via bukkit hosting
+main: com.georlegacy.general.notificationsbotbukkit.BukkitMain
+commands:
+  disablenotificationsbot:
+    usage: /<command>
+    description: Disables the bot
+    permission: notificationsbot.disable
+  enablenotificationsbot:
+    usage: /<command>
+    description: Enables the bot
+    permission: notificationsbot.enable
+permissions:
+  notificationsbot.*:
+    defualt: op
+    children:
+      notificationsbot.disable: true
+      notificationsbot.enable: true
+  notificationsbot.disable:
+    defualt: op
+  notificationsbot.enable:
+    defualt: op
