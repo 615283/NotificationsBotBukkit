@@ -49,6 +49,7 @@ public class App extends ListenerAdapter {
             channelErrorB.clear();
             channelErrorB.setColor(new Color(218, 47, 34));
             channelErrorB.addField("**Configuration Error:**", "*You are attempting to run a command using the prefix for NotificationsBot in the wrong channel, if this is the channel you wish to use, then make sure you have correctly copied the ID of the channel into the configuration file. If you have several bots wishing to use the same prefix, please first check that they have no conflicting commands and then set the option `compatibility` in the config file to `true`, this will prevent this warning from showing up, by default it is set to false. If this issue persists, please join the 615283 Discord server at {s_url} and submit a support ticket in #support.*", true);
+            channelErrorB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
             channel.sendMessage(channelErrorB.build()).queue();
         }
         if (msg.getContentRaw().contains(prefix) && (channel.getId().equals(config[2]))) {
@@ -59,6 +60,7 @@ public class App extends ListenerAdapter {
                     errorB.clear();
                     errorB.setColor(new Color(218, 47, 34));
                     errorB.addField("**Configuration Error:**", "*The role in the configuration file does not exist or has been configured incorrectly. Please check that the role exists before continuing use with this bot. If you think that you have configured it correctly, please join the 615283 Discord server at {s_url} and submit a support ticket in #support.*", true);
+                    errorB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
                     channel.sendMessage(errorB.build()).queue();
                     return;
                 }
@@ -70,6 +72,7 @@ public class App extends ListenerAdapter {
                         priorB.clear();
                         priorB.setColor(new Color(218, 47, 34));
                         priorB.addField("Error", user.getAsMention() + ", you are already opted into notifications.", false);
+                        priorB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
                         channel.sendMessage(priorB.build()).queue();
                         priorB.clear();
                     }
@@ -79,6 +82,7 @@ public class App extends ListenerAdapter {
                         aftB.clear();
                         aftB.setColor(new Color(51, 198, 40));
                         aftB.addField("Success", user.getAsMention() + ", you have successfully been opted into notifications", false);
+                        aftB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
                         channel.sendMessage(aftB.build()).queue();
                     }
                 }
@@ -90,6 +94,7 @@ public class App extends ListenerAdapter {
                         priorB.clear();
                         priorB.setColor(new Color(218, 47, 34));
                         priorB.addField("Error", user.getAsMention() + ", you are already opted out of notifications.", false);
+                        priorB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
                         channel.sendMessage(priorB.build()).queue();
                         priorB.clear();
                     }
@@ -99,14 +104,16 @@ public class App extends ListenerAdapter {
                         aftB.clear();
                         aftB.setColor(new Color(51, 198, 40));
                         aftB.addField("Success", user.getAsMention() + ", you have successfully been opted out of notifications", false);
+                        aftB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
                         channel.sendMessage(aftB.build()).queue();
                     }
                 }
-                if (msg.getContentRaw().equalsIgnoreCase(prefix + "help") && config[3].equals("false")) {
+                if (msg.getContentRaw().equalsIgnoreCase(prefix + "help")) {
                     EmbedBuilder helpB = new EmbedBuilder();
                     helpB.clear();
                     helpB.setColor(new Color(0, 150, 255));
                     helpB.addField("Help", "**Prefix:**\nThe prefix for notifications bot is currently `" + prefix + "`\n\n**Commands are as follows:**\n`optin` - Opts a user into notifications.\n`optout` - Opts a user out of notifications.\n`help` - Displays this message.", true);
+                    helpB.setFooter("NotificationsBot by 615283", "https://i.imgur.com/6DNNKBb.jpg");
                     channel.sendMessage(helpB.build()).queue();
                 }
             }
