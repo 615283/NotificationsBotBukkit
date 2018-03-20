@@ -28,7 +28,7 @@ public class App extends ListenerAdapter {
         jdaBot = new JDABuilder(AccountType.BOT).setToken(config[4]).buildBlocking();
         jdaBot.addEventListener(new App());
         try {
-            jdaBot.getSelfUser().getManager().setAvatar(Icon.from(App.class.getClassLoader().getResourceAsStream("icon.jpg")));
+            jdaBot.getSelfUser().getManager().setAvatar(Icon.from(App.class.getClassLoader().getResourceAsStream("icon.png"))).queue();
         } catch (IOException e) {
             e.printStackTrace();
         }
