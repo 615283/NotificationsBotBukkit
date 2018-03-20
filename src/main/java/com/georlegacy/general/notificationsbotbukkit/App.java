@@ -1,6 +1,9 @@
 package com.georlegacy.general.notificationsbotbukkit;
 
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 
 import javax.security.auth.login.LoginException;
 
@@ -8,12 +11,7 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.entities.Game;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageChannel;
-import net.dv8tion.jda.core.entities.Role;
-import net.dv8tion.jda.core.entities.User;
+import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -29,6 +27,11 @@ public class App extends ListenerAdapter {
         System.out.println("NotificationsBot is now loading! Please keep an eye on the console for any errors.");
         jdaBot = new JDABuilder(AccountType.BOT).setToken(config[4]).buildBlocking();
         jdaBot.addEventListener(new App());
+        try {
+            jdaBot.getSelfUser().getManager().setAvatar(Icon.from(App.class.getClassLoader().getResourceAsStream("icon.jpg")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         jdaBot.getPresence().setGame(Game.watching("for notifications"));
     }
 
